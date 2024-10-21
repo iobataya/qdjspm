@@ -1,0 +1,19 @@
+"""
+Nanosurf scripting interface Pythonラッパー
+"""
+import nanosurf as nsf
+
+class Application:
+    (Simulation, CoreAFM, FlexAFM, NaioAFM) = (0,1,2,3)
+    def __init__(self, spm_type:int):
+        if spm_type == self.CoreAFM:
+            self.spm = nsf.CoreAFM()
+            if not spm.is_scripting_enabled():
+                raise IOError("Scripting option is not activated.")
+            self.app = spm.application
+        else:
+            raise NotImplementedError()
+
+class Approach:
+    def __init__(self, app):
+        pass
